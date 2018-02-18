@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: rolling-express
+spec:
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: rolling-express
+    spec:
+      containers:
+        - name: rolling-express
+          image: curtis911/rolling-express
+          imagePullPolicy: Always
+          env:
+            - name: COLOR
+              value: "cyan"
